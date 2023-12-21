@@ -1,0 +1,63 @@
+<html lang="en">
+    <%- include('partials/header.ejs'); -%>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>BookNote</title>
+      <link rel="stylesheet" href="./styles/main.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+      <div class="box" id="heading">
+        <h1><%= bookNotes %></h1>
+      </div>
+      <div class="firstRow">
+        <h2>Book Cover</h2>
+        <h2 style="margin-left: 3.9%">Book Name</h2>
+        <h2 style="margin-left: 4%">Book Note</h2>
+      </div>
+      <div class="box">
+        <% for(let book of listBooks){%>
+          <div class="book">
+            <form action="/delete" method="post">
+              <input type="checkbox" onchange="this.form.submit()" name="deleteBookId" value="<%= book.id %>">
+            </form>
+
+            <p id="title<%=book.id%>">
+              <img src="https://covers.openlibrary.org/b/isbn/<%=book.isbn %>-M.jpg" />
+              <h3 class="content"><%= book.book_name %></h3>
+              <p class="content"><%= book.comment%></p>
+            </p>
+
+            <form class="edit" action="/edit" method="post">
+              <input type="hidden" name="updatedBookId" value="<%= book.id %>">
+              <input id="input<%=book.id%>" type="text" name="updatedBookNote" value="<%= book.comment %>" autocomplete="off"
+                autofocus="true" hidden="true" />
+              <button id="done<%=book.id%>" class="edit" type="submit" hidden><img class="icon"
+                  src="/assets/icons/check-solid.svg" alt="tick image"></button>
+            </form>
+            <button id="edit<%=book.id%>" class="edit" onclick="handler('<%=book.id%>')"><img class="icon"
+                src="/assets/icons/pencil-solid.svg" alt="pencil image"></button>
+          </div>
+          <% } %>
+
+            <form class="item" action="/add" method="post">
+              <button  class="add" type="submit" name="add" value=newBook >+</button>
+            </form>
+      </div>
+    </body>
+  <script>
+    function handler(id) {
+      document.getElementById("edit" + id).setAttribute("hidden", true)
+      document.getElementById("done" + id).removeAttribute("hidden")
+      document.getElementById("input" + id).removeAttribute("hidden")
+    }
+  </script>
+  <%- include('partials/footer.ejs'); -%>
+</html>

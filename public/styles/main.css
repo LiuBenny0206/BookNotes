@@ -1,0 +1,137 @@
+html {
+  background-color: #e4e9fd;
+  background-image: -webkit-linear-gradient(61deg, #cdbfff 56%, #ffffff 50%);
+  min-height: 1000px;
+  font-family: "helvetica neue";
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  min-height: 95vh;
+}
+main {
+  text-align: center;
+  flex: 1 0 auto;
+}
+
+
+.firstRow {
+  display: flex;
+  align-items: start; /* This aligns the items to the start of the cross axis, which is the top when in a row */
+  margin-left: 90px;
+  margin-top: 4%;
+  color: rgba(126, 126, 126, 0.81);
+  font-family: "Rubik Doodle Shadow";
+
+}
+
+h2 {
+  background: #d1d4ff;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  padding: 30px
+}
+h3{
+  margin-left: 20px;
+  margin-right: 10%;
+}
+.box {
+  max-width: 1350px;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+.content{
+  margin-left: 50px;
+  font-family: "Nunito";
+}
+
+#heading {
+  color: rgba(126, 126, 126, 0.81);
+  padding: 10px;
+  background: #d1d4ff;
+  text-align: center;
+  min-width: 50%;
+  font-family: "Rubik Doodle Shadow";
+}
+form.edit {
+  display: flex;
+}
+
+.book {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 5px solid #f1f1f1;
+}
+
+.book:last-child {
+  border-bottom: 0;
+}
+
+input[type="checkbox"] {
+  margin: 20px;
+  margin-left: 0;
+}
+
+p {
+  padding: 20px;
+  font-size: 20px;
+}
+
+form {
+  text-align: center;
+  margin-left: 20px;
+}
+
+button.add {
+  margin-top: 10px;
+  min-height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: #6c6979;
+  color: #fff;
+  font-size: 30px;
+  border-width: 0;
+}
+
+button.edit {
+  margin-left: 0px;
+  margin-right: 20px;
+  border: none;
+  background: none;
+}
+
+.icon {
+  height: 20px;
+}
+
+input[type="text"] {
+  text-align: left;
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: inset 0 -3px 0 0 rgb(44, 44, 44);
+}
+
+::placeholder {
+  color: #6c6979;
+  opacity: 1;
+}
+
+footer {
+  flex: 0 0 auto;
+  color: white;
+  text-align: center;
+}
